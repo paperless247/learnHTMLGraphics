@@ -10,6 +10,7 @@
     <script>
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
+        const mark = 6*(Math.PI/180); // 1 mark = 6 degrees
         let radius = canvas.height / 2;
         ctx.translate(radius, radius); <!-- Remap the (0,0) position (of the drawing object) to the center of the canvas -->
         radius = radius * 0.9;
@@ -31,16 +32,22 @@
             ctx.beginPath();
             ctx.arc(0, 0, radius, 0, 2*Math.PI);
             ctx.fillStyle = "white";
-            ctx.fill()
+            ctx.fill();
             
             ctx.strokeStyle = grad;
             ctx.lineWidth = radius * 0.1
-            ctx.stroke()
+            ctx.stroke();
             
             ctx.beginPath();
             ctx.arc(0, 0, radius * 0.1, 0, 2*Math.PI);
             ctx.fillStyle = "#333";
-            ctx.fill()
+            ctx.fill();
+        }
+
+        function dot() {
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.005, 0, 2*Math.PI);
+            ctx.fill();
         }
 
         function drawNumbers(ctx, radius) {
@@ -49,7 +56,7 @@
             ctx.textAlign = "center";
 
             for(let num = 1; num <13; num++) {
-                let ang = num * Math.PI /6          // or 2*PI/12
+                let ang = num * 5*mark;             // 1 hour = 5 marks
                 ctx.rotate(ang);
                 ctx.translate(0, -radius * 0.85);   // remember y-axis pointing down 
                 ctx.rotate(-ang);
@@ -58,6 +65,15 @@
                 ctx.translate(0, radius * 0.85);
                 ctx.rotate(-ang);                   // back to the orginal position
             }
+
+            for(let num = 1; num <61; num++) {
+                ctx.rotate(mark);
+                if (num%5 != 0) {
+                    ctx.translate(0, -radius * 0.85);   // remember y-axis pointing down 
+                    dot();
+                    ctx.translate(0, radius * 0.85);
+                }
+            }
         }
 
         function drawTime(ctx, radius){
@@ -65,7 +81,6 @@
             let hour = now.getHours() % 12;
             let minute = now.getMinutes();
             let second = now.getSeconds();
-            let mark = 6*(Math.PI/180); // 1 mark = 6 degrees
 
             hour = (hour + minute/60 + second/3600)*(5*mark);   // 1 hour = 5 marks
             drawHand(ctx, hour, radius*0.5, radius*0.07);

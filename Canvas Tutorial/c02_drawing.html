@@ -12,21 +12,53 @@
         Sorry, your browser does not support canvas.
     </canvas>
 
+    <canvas id="myCanvas1" width="200" height="100" style="border: 1px solid black;">
+        Sorry, your browser does not support canvas.
+    </canvas>
+
     <script>
         const canvas = document.getElementById("myCanvas");
         const ctx = canvas.getContext("2d");
 
-        ctx.fillStyle = "red";
-        ctx.fillRect(0, 0, 150, 75);    // defines the start-point and the width and height of the rectangle
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(10, 10, 180, 80);    // defines the start-point and the width and height of the rectangle
 
-        ctx.moveTo(0, 0);    // moveTo(x, y) - defines the starting point of the line
-        ctx.lineTo(100, 100);    // lineTo(x, y) - defines the ending point of the line
+        ctx.strokeStyle = "rgb(0 0 255 / 50%)"; // opacity to 50%
+        ctx.lineWidth = 10;
+        ctx.strokeRect(5, 5, 190, 90);
+
+        ctx.moveTo(0, 0);               // starting point of the line
+        ctx.lineTo(100, 100);           // ending point of the line
         ctx.lineTo(200, 0);
+        ctx.stroke();                   // actually draw the line
+        
+        ctx.beginPath();                        // declares that we are about to draw a new path (without drawing)
+        ctx.arc(100, 50, 25, 0, 2*Math.PI);     // arc(x, y, r, startangle, endangle) center of the circle, start at 3 o'clock
+        ctx.lineWidth = 10;                     // optional thickness
+        ctx.strokeStyle = "red";                // optional color
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(100, 50, 25, 0, 2*Math.PI/3);     // arc(x, y, r, startangle, endangle) x- and y-coordinates define the center of the circle
+        ctx.moveTo(100,0);
+        ctx.lineTo(150,50);
+        ctx.lineWidth = 10;
+        ctx.lineCap = "butt";      // "butt", "round" or "square"
         ctx.stroke();
+    </script>
+
+    <script>
+        const canvas1 = document.getElementById("myCanvas1");
+        const ctx1 = canvas1.getContext("2d");
+
+        ctx1.beginPath();
+        ctx1.moveTo(20, 20);
+        ctx1.lineTo(100, 20);
+        ctx1.lineTo(180, 80);
+        ctx1.lineTo(20, 80);
+        ctx1.lineTo(20, 20);
+        ctx1.lineWidth = 1;
+        ctx1.strokeStyle = "green";
+        ctx1.stroke();
     </script>
 </body>
 </html>

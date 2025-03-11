@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rect Arc</title>
+    </head>
+    <body>
+        <h1>Rectangles</h1>
+        <!-- 
+        The rect() method
+        The fillRect() method
+        The strokeRect() method
+        -->
+
+        <canvas id="myCanvas0" width="300" height="150" style="border:1px solid #000000;">
+            Sorry, your browser does not support canvas.
+        </canvas>
+
+        <canvas id="myCanvas1" width="300" height="150" style="border:1px solid #000000;">
+            Sorry, your browser does not support canvas.
+        </canvas>
+
+        <canvas id="myCanvas2" width="300" height="150" style="border:1px solid #000000;">
+            Sorry, your browser does not support canvas.
+        </canvas>
+
+        <canvas id="myCanvas3" width="300" height="150" style="border:1px solid #000000;">
+            Sorry, your browser does not support canvas.
+        </canvas>
+
+        <canvas id="myCanvas4" width="300" height="150" style="border:1px solid #000000;">
+            Sorry, your browser does not support canvas.
+        </canvas>
+
+        <script>
+            const canvas0 = document.getElementById("myCanvas0");
+            const ctx0 = canvas0.getContext("2d");
+
+            ctx0.fillStyle = "pink";
+            ctx0.fillRect(10, 10, 150, 100);        // upper-left corner, width, and height
+
+            ctx0.rect(140, 40, 150, 100);
+            ctx0.stroke();                          // rect needs stroke() to draw
+
+            ctx0.strokeStyle = "blue";
+            ctx0.strokeRect(75, 25, 150, 100);      // no need to call stroke()
+
+
+            const canvas1 = document.getElementById("myCanvas1");
+            const ctx1 = canvas1.getContext("2d");
+
+            thickRect(6, "red", 5, 5, 290, 140);
+            thickRect(4, "green", 30, 30, 50, 50);
+            thickRect(10, "blue", 50, 50, 150, 80);
+
+            function thickRect(lineW, color, x, y, w, h) {
+                ctx1.lineWidth = lineW;
+                ctx1.strokeStyle = color;
+                ctx1.strokeRect(x, y, w, h);      // no need to call stroke()
+            }
+
+
+            const canvas2 = document.getElementById("myCanvas2");
+            const ctx2 = canvas2.getContext("2d");
+
+            ctx2.fillStyle = "pink";
+            ctx2.fillRect(10, 10, 150, 100);
+            ctx2.strokeStyle = "blue";
+            ctx2.strokeRect(85, 20, 150, 80);
+            ctx2.clearRect(60, 35, 50, 50); // used to clear a rectangular area of the canvas. The cleared rectangle is transparent.
+            
+            
+            const canvas3 = document.getElementById("myCanvas3");
+            const ctx3 = canvas3.getContext("2d");
+            
+            ctx3.beginPath();
+            ctx3.arc(50, 50, 40, 0, 2*Math.PI);
+            ctx3.fillStyle = "red";
+            ctx3.fill();
+            ctx3.lineWidth = 4;
+            ctx3.strokeStyle = "blue";
+            ctx3.stroke();
+
+            ctx3.beginPath();
+            ctx3.arc(150, 50, 40, 0, Math.PI);
+            ctx3.fillStyle = "red";
+            ctx3.fill();
+            ctx3.lineWidth = 4;
+            ctx3.strokeStyle = "blue";
+            ctx3.stroke();
+            
+            
+            const canvas4 = document.getElementById("myCanvas4");
+            const ctx4 = canvas4.getContext("2d");
+            
+            ctx4.beginPath();
+            ctx4.arc(50, 50, 40, 0, Math.PI/2);         // from 3 o'clock clockwise
+            ctx4.stroke();
+            
+            ctx4.beginPath();
+            // counterclockwise parameter set to true
+            // 3 o'clock to draws the arc counter-clockwise between the start and end angle
+            ctx4.arc(150, 50, 40, 0, Math.PI/2, true);
+            ctx4.stroke();
+        </script>
+
+    </body>
+</html>

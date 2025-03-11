@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing</title>
+</head>
+<body>
+    <h1>HTML5 Canvas - Draw a Rectangle</h1>
+
+    <canvas id="myCanvas" width="200" height="100" style="border: 1px solid black;">
+        Sorry, your browser does not support canvas.
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "red";
+        ctx.fillRect(0, 0, 150, 75);    // defines the start-point and the width and height of the rectangle
+
+        ctx.moveTo(0, 0);    // moveTo(x, y) - defines the starting point of the line
+        ctx.lineTo(100, 100);    // lineTo(x, y) - defines the ending point of the line
+        ctx.lineTo(200, 0);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(100, 50, 25, 0, 2*Math.PI/3);     // arc(x, y, r, startangle, endangle) x- and y-coordinates define the center of the circle
+        ctx.stroke();
+    </script>
+</body>
+</html>

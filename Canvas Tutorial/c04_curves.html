@@ -19,7 +19,7 @@ The bezierCurveTo() method
     <script>
         const canvas0 = document.getElementById("myCanvas0");
         const ctx0 = canvas0.getContext("2d");
-        const [spx, spy, cpx, cpy, epx, epy] = [10, 100, 250, 140, 230, 20];
+        let [spx, spy, cpx, cpy, epx, epy] = [10, 100, 250, 140, 230, 20];
         ctx0.beginPath();
         ctx0.moveTo(spx, spy);                       // <- start point
         ctx0.quadraticCurveTo(cpx, cpy, epx, epy);   // control point and end point
@@ -39,12 +39,42 @@ The bezierCurveTo() method
         ctx0.moveTo(0, 150);                       // <- start point
         ctx0.quadraticCurveTo(0, 0, 150, 0);   // control point and end point
         ctx0.stroke();
-        
-
-
     </script>
 
     <h1>bezierCurveTo()</h1>
+    <canvas id="myCanvas1" style="border: 1px solid #000000;"></canvas>
+    <script>
+        const canvas1 = document.getElementById("myCanvas1");
+        const ctx1 = canvas1.getContext("2d");
+        [spx, spy, cp1x, cp1y, cp2x, cp2y, epx, epy] = [20, 20, 45, 150, 180, 10, 290, 140];
+        ctx1.beginPath();
+        ctx1.moveTo(spx, spy);                       // <- start point
+        ctx1.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, epx, epy);   // control point 1, 2, and end point
+        ctx1.strokeStyle = "red";
+        ctx1.stroke();
+        
+        ctx1.strokeStyle = "black";
+        ctx1.beginPath();   // just want to show the control point 1
+        ctx1.arc(cp1x, cp1y, 5, 0, 2*Math.PI);
+        ctx1.fill();
+
+        ctx1.beginPath();   // just want to show the control point 2
+        ctx1.arc(cp2x, cp2y, 5, 0, 2*Math.PI);
+        ctx1.fill();
+
+        ctx1.beginPath();   // just want to show the middle point
+        ctx1.arc((spx + epx)/2, (spy + epy)/2, 5, 0, 2*Math.PI);
+        ctx1.fill();
+
+        ctx1.moveTo(spx, spy);
+        ctx1.lineTo(cp1x, cp1y);
+        ctx1.stroke();
+        ctx1.moveTo(cp2x, cp2y);
+        ctx1.lineTo(epx, epy);
+        ctx1.lineTo(spx, spy);
+        ctx1.stroke();
+    </script>
+
     
 </body>
 </html>

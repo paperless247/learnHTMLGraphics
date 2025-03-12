@@ -1,0 +1,50 @@
+<!-- 
+The three most used methods for drawing curves in canvas are:
+
+The arc() method (described in Canvas Circles chapter)
+The quadraticCurveTo() method
+The bezierCurveTo() method 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curves</title>
+</head>
+<body>
+    <h1>quadraticCurveTo()</h1>
+    <canvas id="myCanvas0" style="border: 1px solid #000000;"></canvas>
+    <script>
+        const canvas0 = document.getElementById("myCanvas0");
+        const ctx0 = canvas0.getContext("2d");
+        const [spx, spy, cpx, cpy, epx, epy] = [10, 100, 250, 140, 230, 20];
+        ctx0.beginPath();
+        ctx0.moveTo(spx, spy);                       // <- start point
+        ctx0.quadraticCurveTo(cpx, cpy, epx, epy);   // control point and end point
+        ctx0.stroke();
+
+        ctx0.beginPath();   // just want to show the control point
+        ctx0.arc(cpx, cpy, 5, 0, 2*Math.PI);
+        ctx0.fill();
+
+        ctx0.moveTo(spx, spy);
+        ctx0.lineTo(cpx, cpy);
+        ctx0.lineTo(epx, epy);
+        ctx0.stroke();
+
+        // test the square upper left square 150x150
+        ctx0.beginPath();
+        ctx0.moveTo(0, 150);                       // <- start point
+        ctx0.quadraticCurveTo(0, 0, 150, 0);   // control point and end point
+        ctx0.stroke();
+        
+
+
+    </script>
+
+    <h1>bezierCurveTo()</h1>
+    
+</body>
+</html>

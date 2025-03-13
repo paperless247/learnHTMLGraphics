@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+</head>
+<body>
+    <!-- default value: 10px sans serif -->
+    <canvas id="myCanvas0" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvas1" style="border: 1px solid #000000;"></canvas>
+    <script>
+        const canvas0 = document.getElementById("myCanvas0");
+        const ctx0 = canvas0.getContext("2d");
+
+        ctx0.font = "50px Arial";
+        ctx0.fillText("fillText", 10, 50);
+        ctx0.strokeText("strokeText", 10, 100);
+        ctx0.font = "bold italic 50px Arial";
+        ctx0.strokeText("bold italic", 10, 150);
+    </script>
+
+    <script>
+        const canvas1 = document.getElementById("myCanvas1");
+        const ctx1 = canvas1.getContext("2d");
+
+        ctx1.font = "50px Arial";
+        ctx1.fillStyle = "purple";
+        ctx1.fillText("fillStyle", 10, 50);
+        ctx1.strokeStyle = "purple";
+        ctx1.strokeText("strokeStyle", 10, 100);
+    </script>
+
+    
+</body>
+</html>

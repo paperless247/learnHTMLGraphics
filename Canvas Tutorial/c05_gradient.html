@@ -25,7 +25,8 @@
         ctx1.strokeStyle = grad;
         ctx1.strokeRect(10, 10, 280, 130);
     </script>
-    <h1>createRadialGradient()</h1>
+
+    <h1>continue ...</h1>
     <canvas id="myCanvas2" style="border: 1px solid #000000;"></canvas>
     <canvas id="myCanvas3" style="border: 1px solid #000000;"></canvas>
     <canvas id="myCanvas4" style="border: 1px solid #000000;"></canvas>
@@ -66,6 +67,56 @@
         ctx5.arc(150, 75, 65, 0, 2*Math.PI);
         ctx5.fillStyle = grad;
         ctx5.fill();
+    </script>
+
+    <h1>createRadialGradient()</h1>
+    <p>A radial gradient is defined with two imaginary circles: a start circle and an end circle. The gradient starts with the start circle and moves towards the end circle.</p>
+    <canvas id="myCanvasr0" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvasr1" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvasr2" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvasr3" style="border: 1px solid #000000;"></canvas>
+    <script>
+        const r0 = document.getElementById("myCanvasr0");
+        const ctxr0 = r0.getContext("2d");
+        const r1 = document.getElementById("myCanvasr1");
+        const ctxr1 = r1.getContext("2d");
+        const r2 = document.getElementById("myCanvasr2");
+        const ctxr2 = r2.getContext("2d");
+        const r3 = document.getElementById("myCanvasr3");
+        const ctxr3 = r3.getContext("2d");
+
+        let [sx, sy, sr, ex, ey, er] = [150, 75, 15, 150, 75, 150];
+        grad = ctxr0.createRadialGradient(sx, sy, sr, ex, ey, er); // start xy radius, and end xy radius
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(1, "darkblue");
+        
+        ctxr0.fillStyle = grad;
+        ctxr0.fillRect(10, 10, 280, 130);
+        
+        [sx, sy, sr, ex, ey, er] = [150, 75, 15, 150, 75, 75];
+        grad = ctxr0.createRadialGradient(sx, sy, sr, ex, ey, er); // start xy radius, and end xy radius
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(1, "darkblue");
+        
+        ctxr1.fillStyle = grad;
+        ctxr1.fillRect(10, 10, 280, 130);
+        
+        [sx, sy, sr, ex, ey, er] = [150, 75, 15, 225, 75, 150];
+        grad = ctxr2.createRadialGradient(sx, sy, sr, ex, ey, er); // start xy radius, and end xy radius
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(1, "darkblue");
+        
+        ctxr2.fillStyle = grad;
+        ctxr2.fillRect(10, 10, 280, 130);
+        
+        [sx, sy, sr, ex, ey, er] = [150, 75, 15, 150, 75, 150];
+        grad = ctxr3.createRadialGradient(sx, sy, sr, ex, ey, er); // start xy radius, and end xy radius
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(0.3, "pink");
+        grad.addColorStop(1, "darkblue");
+        
+        ctxr3.fillStyle = grad;
+        ctxr3.fillRect(10, 10, 280, 130);
     </script>
 
     

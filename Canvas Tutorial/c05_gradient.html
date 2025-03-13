@@ -6,6 +6,68 @@
     <title>Gradients</title>
 </head>
 <body>
+    <h1>createLinearGradient()</h1>
+    <canvas id="myCanvas0" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvas1" style="border: 1px solid #000000;"></canvas>
+    <script>
+        const c0 = document.getElementById("myCanvas0");
+        const ctx0 = c0.getContext("2d");
+        const c1 = document.getElementById("myCanvas1");
+        const ctx1 = c1.getContext("2d");
+
+        let grad = ctx0.createLinearGradient(0, 0, 280, 0); // start xy and end xy
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(1, "darkblue");
+
+        ctx0.fillStyle = grad;
+        ctx0.fillRect(10, 10, 280, 130);
+        ctx1.lineWidth = 10;
+        ctx1.strokeStyle = grad;
+        ctx1.strokeRect(10, 10, 280, 130);
+    </script>
+    <h1>createRadialGradient()</h1>
+    <canvas id="myCanvas2" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvas3" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvas4" style="border: 1px solid #000000;"></canvas>
+    <canvas id="myCanvas5" style="border: 1px solid #000000;"></canvas>
+    <script>
+        const c2 = document.getElementById("myCanvas2");
+        const ctx2 = c2.getContext("2d");
+        const c3 = document.getElementById("myCanvas3");
+        const ctx3 = c3.getContext("2d");
+        const c4 = document.getElementById("myCanvas4");
+        const ctx4 = c4.getContext("2d");
+        const c5 = document.getElementById("myCanvas5");
+        const ctx5 = c5.getContext("2d");
+
+        grad = ctx2.createLinearGradient(0, 0, 280, 0); // start xy and end xy
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(.5, "purple");
+        grad.addColorStop(1, "darkblue");
+        
+        ctx2.fillStyle = grad;
+        ctx2.fillRect(10, 10, 280, 130);
+        
+        grad = ctx3.createLinearGradient(0, 0, 0, 130); // start xy and end xy
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(1, "darkblue");
+
+        ctx3.fillStyle = grad;
+        ctx3.fillRect(10, 10, 280, 130);
+
+        grad = ctx4.createLinearGradient(0, 0, 280, 130); // start xy and end xy
+        grad.addColorStop(0, "lightblue");
+        grad.addColorStop(1, "darkblue");
+
+        ctx4.fillStyle = grad;
+        ctx4.fillRect(10, 10, 280, 130);
+
+        ctx5.beginPath();
+        ctx5.arc(150, 75, 65, 0, 2*Math.PI);
+        ctx5.fillStyle = grad;
+        ctx5.fill();
+    </script>
+
     
 </body>
 </html>

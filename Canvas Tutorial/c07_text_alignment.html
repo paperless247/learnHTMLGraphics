@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Alignment</title>
+    <!-- 
+        textBaseline - vertical alignment
+        textAlign - horizontal alignment
+     -->
+</head>
+<body>
+    <h1>textBaseline</h1>
+    <canvas id="myCanvas0" width="500" height="150" style="border:1px solid grey;">
+        Sorry, your browser does not support canvas.
+    </canvas>
+
+    <script>
+        const canvas0 = document.getElementById("myCanvas0");
+        const ctx0 = canvas0.getContext("2d");
+
+        // create a line
+        ctx0.lineWidth = 2;
+        ctx0.beginPath();
+        ctx0.moveTo(0, 75);
+        ctx0.lineTo(500, 75);
+        ctx0.stroke();
+        ctx0.closePath();
+
+        ctx0.font = "20px Arial";
+        ctx0.fillStyle = "purple";
+
+        ctx0.textBaseline = "top";
+        ctx0.fillText("top", 5, 75);
+
+        ctx0.textBaseline = "hanging";
+        ctx0.fillText("hanging", 40, 75);
+
+        ctx0.textBaseline = "middle";
+        ctx0.fillText("middle",120, 75);
+
+        ctx0.textBaseline = "alphabetic";
+        ctx0.fillText("alphabetic", 190, 75);
+
+        ctx0.textBaseline = "ideographic";
+        ctx0.fillText("ideographic", 295, 75);
+
+        ctx0.textBaseline = "bottom";
+        ctx0.fillText("bottom", 410, 75);
+    </script>
+
+    <h1>textAlign</h1>
+    <canvas id="myCanvas1" width="500" height="150" style="border:1px solid grey;">
+        Sorry, your browser does not support canvas.
+    </canvas>
+
+    <script>
+        const canvas1 = document.getElementById("myCanvas1");
+        const ctx1 = canvas1.getContext("2d");
+
+        // create a line
+        ctx1.lineWidth = 2;
+        ctx1.beginPath();
+        ctx1.moveTo(250, 0);
+        ctx1.lineTo(250, 150);
+        ctx1.stroke();
+        ctx1.closePath();
+
+        ctx1.font = "20px Arial";
+        ctx1.fillStyle = "purple";
+
+        ctx1.textAlign = "center";
+        ctx1.fillText("center", 250, 20);
+
+        ctx1.textAlign = "start";
+        ctx1.fillText("start", 250, 50);
+
+        ctx1.textAlign = "end";
+        ctx1.fillText("end", 250, 80);
+
+        ctx1.textAlign = "left";
+        ctx1.fillText("left", 250, 110);
+
+        ctx1.textAlign = "right";
+        ctx1.fillText("right", 250, 135);
+    </script>
+    
+    <h1>Center and Middle</h1>
+    <canvas id="myCanvas2" width="500" height="150" style="border:1px solid grey;">
+        Sorry, your browser does not support canvas.
+    </canvas>
+
+    <script>
+        const canvas2 = document.getElementById("myCanvas2");
+        const ctx2 = canvas2.getContext("2d");
+
+        ctx2.font = "30px Verdana";
+        ctx2.fillStyle = "red";
+        ctx2.textAlign = "center";
+        ctx2.textBaseline = "middle";
+        ctx2.fillText("Hello World", canvas2.width/2, canvas2.height/2);
+    </script>
+    
+</body>
+</html>

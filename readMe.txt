@@ -18,3 +18,5 @@ Google Maps
 Google Maps lets you embed maps in HTML pages.
 
 HTML + JavaScript Game
+
+Use extensions from https://www.youtube.com/watch?v=KRTa1OuNKNU for help

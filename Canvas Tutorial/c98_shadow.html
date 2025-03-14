@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow</title>
+    <!-- 
+    shadowColor - defines the color of the shadow
+    shadowBlur - defines the blur amount of the shadow
+    shadowOffsetX - defines the distance that shadows will be offset horizontally
+    shadowOffsetY - defines the distance that shadows will be offset vertically
+    -->
+</head>
+<body>
+    <h1>shadowColor and shadowBlur</h1>
+    <canvas id="myCanvas0" width="600" height="150" style="border:1px solid grey;"></canvas>
+    <canvas id="myCanvas1" width="600" height="150" style="border:1px solid grey;"></canvas>
+
+    <script>
+        const canvas0 = document.getElementById("myCanvas0");
+        const ctx0 = canvas0.getContext("2d");
+        ctx0.shadowColor = "lightblue";
+        ctx0.shadowOffsetX = 10;
+        ctx0.shadowOffsetY = 10;
+
+        ctx0.fillStyle = "blue";
+        ctx0.fillRect(20, 20, 100, 100);
+        
+        ctx0.lineWidth = 4;
+        ctx0.strokeStyle = "blue";
+        ctx0.strokeRect(170, 20, 100, 100);
+
+        
+        ctx0.shadowBlur = 8;
+        
+        ctx0.fillRect(320, 20, 100, 100);
+        ctx0.strokeRect(470, 20, 100, 100);
+        </script>
+
+    <script>
+        const canvas1 = document.getElementById("myCanvas1");
+        const ctx1 = canvas1.getContext("2d");
+
+        ctx1.shadowColor = "lightblue";
+        ctx1.shadowOffsetX = 5;
+        ctx1.shadowOffsetY = 5;
+
+        ctx1.font = "50px Arial";
+
+        ctx1.fillStyle = "purple";
+        ctx1.fillText("Hello World", 10, 60);
+        
+        ctx1.strokeStyle = "purple";
+        ctx1.strokeText("Hello World", 10, 120);
+
+        ctx1.shadowBlur = 4;
+        ctx1.shadowOffsetX = 5;
+        ctx1.shadowOffsetY = 5;
+
+        ctx1.fillText("Hello World", 310, 60);
+        ctx1.strokeText("Hello World", 310, 120);
+    </script>
+
+    <h1>shadowOffsetX and shadowOffsetY</h1>
+    <canvas id="myCanvas2" width="600" height="150" style="border:1px solid grey;"></canvas>
+    <script>
+        const canvas2 = document.getElementById("myCanvas2");
+        const ctx2 = canvas2.getContext("2d");
+    </script>
+
+</body>
+</html>

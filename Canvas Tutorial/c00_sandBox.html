@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>HTML5 Canvas - Draw a Rectangle</h1>
+ctx1.textAlign = "center";
+ctx1.fillText("center", 250, 20);
 
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid black;">
-Sorry, your browser does not support canvas.
-</canvas>
+ctx1.textAlign = "start";
+ctx1.fillText("start", 250, 50);
 
-<script>
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
-ctx.fillStyle = "red";
-ctx.fillRect(0,0,150,75);
-</script>
+ctx1.textAlign = "end";
+ctx1.fillText("end", 250, 80);
 
-</body>
-</html>
+ctx1.textAlign = "left";
+ctx1.fillText("left", 250, 110);
 
+ctx1.textAlign = "right";
+ctx1.fillText("right", 250, 135);

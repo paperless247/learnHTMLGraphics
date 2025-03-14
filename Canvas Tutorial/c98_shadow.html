@@ -66,6 +66,28 @@
     <script>
         const canvas2 = document.getElementById("myCanvas2");
         const ctx2 = canvas2.getContext("2d");
+        ctx2.shadowColor = "lightblue";
+        ctx2.fillStyle = "purple";
+
+        ctx2.font = "50px Arial";
+
+        ctx2.shadowOffsetY = 5;
+        
+        ctx2.shadowOffsetX = 5;
+        ctx2.fillText("H", 10, 75);
+        ctx2.shadowOffsetX = 10;
+        ctx2.fillText("H", 110, 75);
+        ctx2.shadowOffsetX = -10;
+        ctx2.fillText("H", 210, 75);
+        
+        ctx2.shadowOffsetX = 5;
+
+        ctx2.shadowOffsetY = 5;
+        ctx2.fillText("H", 310, 75);
+        ctx2.shadowOffsetY = 10;
+        ctx2.fillText("H", 410, 75);
+        ctx2.shadowOffsetY = -10;
+        ctx2.fillText("H", 510, 75);
     </script>
 
 </body>
